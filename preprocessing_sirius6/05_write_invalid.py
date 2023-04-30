@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/vo87poq/MSNovelist-dev')
+sys.path.append('~/MSNovelist-dev')
 
 import infrastructure.preprocessing as pp
 import sqlite3
@@ -12,7 +12,7 @@ PROCESSING_BLOCK_MAX_COUNT=9999999999
 #PROCESSING_BLOCK_MAX_COUNT=100000
 
 import os
-os.chdir('/beegfs/vo87poq/msnovelist')
+os.chdir('~/msnovelist')
 
 config_ = "target/log.yaml"
 with open(config_, 'r') as f:

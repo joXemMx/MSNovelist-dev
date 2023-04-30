@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/vo87poq/MSNovelist-dev')
+sys.path.append('~/MSNovelist-dev')
 
 import infrastructure.preprocessing as pp
 import sqlite3
@@ -9,7 +9,7 @@ import fp_management.fp_database_sqlite
 from tqdm import tqdm
 
 import os
-os.chdir('/beegfs/vo87poq/msnovelist')
+os.chdir('~/msnovelist')
 
 PROCESSING_BLOCK_MAX_COUNT=9999999999
 #PROCESSING_BLOCK_MAX_COUNT=100000

@@ -5,7 +5,7 @@ conda activate msnovelist-env
 
 cd ~/MSNovelist-dev/preprocessing_sirius6
 export COMPUTERNAME=DOCKER-LIGHT
-export MSNOVELIST_BASE=/home/vo87poq/MSNovelist-dev
+export MSNOVELIST_BASE=~/MSNovelist-dev
 
 python 01_import_training.py
 echo "FINISHED 01_import_training"
