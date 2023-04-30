@@ -4,7 +4,7 @@ import sqlite3
 #import sqlite_utils as su
 
 import sys
-sys.path.append('/msnovelist')
+sys.path.append('/home/vo87poq/MSNovelist-dev')
 
 import fp_management.database as db
 import itertools
@@ -12,14 +12,15 @@ import uuid
 import fp_management.fingerprinting as fp
 import smiles_config as sc
 
-db_crossval = "/sirius6_db/canopus_crossval.hdf5"
-db_train = "/sirius6_db/canopus_database.hdf5"
+import os
+os.chdir('/beegfs/vo87poq/msnovelist')
+
+db_train = "sirius6_db/canopus_database.hdf5"
 
 # db_old = "/sirius6_db/combined_0824_v44.db"
 db_uuid = uuid.uuid4()
-db_new = f"/target/sirius6-{db_uuid}.db"
+db_new = f"target/sirius6-{db_uuid}.db"
 
-h5_crossval = h5py.File(db_crossval, mode='r')
 h5_train = h5py.File(db_train, mode='r')
 
 PROCESSING_BLOCK_SIZE=40000
@@ -88,6 +89,6 @@ while (len(block) > 0) and (processed_blocks < PROCESSING_BLOCK_MAX_COUNT):
 
 print(f"database: {db_new} written")
 
-with open('/target/log.yaml', 'r+') as f:
+with open('target/log.yaml', 'r+') as f:
     f.write(f'db_step1: {db_new}')
 

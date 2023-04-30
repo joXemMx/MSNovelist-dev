@@ -1,6 +1,5 @@
-
 import sys
-sys.path.append('/msnovelist')
+sys.path.append('/home/vo87poq/MSNovelist-dev')
 
 import infrastructure.preprocessing as pp
 import sqlite3
@@ -12,12 +11,14 @@ from tqdm import tqdm
 PROCESSING_BLOCK_MAX_COUNT=9999999999
 #PROCESSING_BLOCK_MAX_COUNT=100000
 
+import os
+os.chdir('/beegfs/vo87poq/msnovelist')
 
-config_ = "/target/log.yaml"
+config_ = "target/log.yaml"
 with open(config_, 'r') as f:
     config = yaml.safe_load(f)
 
-databases = [config["db_step1"], config["db_step2"]]
+databases = [config["db_step2"], config["db_step1"]]
 
 for fp_db_ in databases:
 
@@ -34,6 +35,10 @@ for fp_db_ in databases:
         for id in tqdm(fp_db_invalid):
             cur.execute(q, [id])
             #print(f"{fp_db_}: set invalid id {id}, rows: {cur.rowcount}")
+        
+        cur.close()
+    con.close()
+    f.close()
     
 
 

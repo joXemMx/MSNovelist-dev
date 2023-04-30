@@ -5,6 +5,8 @@ Created on Tue Aug 14 15:58:01 2018
 @author: stravsmi
 """
 
+import sys
+sys.path.append('/home/vo87poq/MSNovelist-dev')
 
 from tqdm import tqdm
 
@@ -94,9 +96,9 @@ sc.config_dump(config_dump_path)
 # Load mapping table for the CSI:FingerID predictors
 
 fp_map = fpm.FingerprintMap(sc.config["fp_map"])
-# fpr.Fingerprinter.init_instance(sc.config['fingerprinter_path'],
-#                                   sc.config['fingerprinter_threads'],
-#                                   capture = False)
+fpr.Fingerprinter.init_instance(sc.config['fingerprinter_path'],
+                                  sc.config['fingerprinter_threads'],
+                                  capture = False)
 # fingerprinter = fpr.Fingerprinter.get_instance()
 
 logger.info(f"Datasets - loading database")

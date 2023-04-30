@@ -3,7 +3,10 @@ from iteration_utilities import duplicates
 import yaml
 from tqdm import tqdm
 
-config_ = "/target/log.yaml"
+import os
+os.chdir('/beegfs/vo87poq/msnovelist')
+
+config_ = "target/log.yaml"
 with open(config_, 'r') as f:
     config = yaml.safe_load(f)
 
@@ -21,7 +24,6 @@ with con:
     res = cur.execute(q)
     keys = res.fetchall()
     keys_keys = [x[0] for x in keys]
-    keys_set = set(keys_keys)
 
     dups = list(duplicates(keys_keys))
     dups_killed = {}
