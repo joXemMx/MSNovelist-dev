@@ -4,7 +4,7 @@ import yaml
 from tqdm import tqdm
 
 import os
-os.chdir('~/msnovelist')
+os.chdir(os.path.expanduser('~/msnovelist'))
 
 config_ = "target/log.yaml"
 with open(config_, 'r') as f:

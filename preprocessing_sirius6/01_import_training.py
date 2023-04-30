@@ -4,7 +4,8 @@ import sqlite3
 #import sqlite_utils as su
 
 import sys
-sys.path.append('~/MSNovelist-dev')
+import os
+sys.path.append(os.path.expanduser('~/MSNovelist-dev'))
 
 import fp_management.database as db
 import itertools
@@ -12,8 +13,7 @@ import uuid
 import fp_management.fingerprinting as fp
 import smiles_config as sc
 
-import os
-os.chdir('~/msnovelist')
+os.chdir(os.path.expanduser('~/msnovelist'))
 
 db_train = "sirius6_db/canopus_database.hdf5"
 

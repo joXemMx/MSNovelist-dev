@@ -1,5 +1,6 @@
 import sys
-sys.path.append('~/MSNovelist-dev')
+import os
+sys.path.append(os.path.expanduser('~/MSNovelist-dev'))
 
 import infrastructure.preprocessing as pp
 import sqlite3
@@ -11,8 +12,7 @@ from tqdm import tqdm
 PROCESSING_BLOCK_MAX_COUNT=9999999999
 #PROCESSING_BLOCK_MAX_COUNT=100000
 
-import os
-os.chdir('~/msnovelist')
+os.chdir(os.path.expanduser('~/msnovelist'))
 
 config_ = "target/log.yaml"
 with open(config_, 'r') as f:
