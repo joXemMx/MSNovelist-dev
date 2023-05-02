@@ -1,7 +1,7 @@
 base_folder: ''
 db_path: ''
 fp_source: ''
-fp_map: ''
+fp_map: 'data/fingerprint-map/csi_fingerid.csv'
 epochs: 20
 # steps per epoch automatic: set to <0
 training_id: ''
@@ -13,18 +13,18 @@ batch_size: 32
 hdf5_lock: "FALSE"
 model_name: 'models.model_flex_20190401'
 sampler_name: ''
-fingerprinter_path: ''
+fingerprinter_path: 'fingerprint-wrapper/target/fingerprint-wrapper-bin-0.5.2.jar'
 fingerprinter_threads: 2
-fingerprinter_cache: ''
-weights_folder: ''
-eval_folder: ''
-log_folder: ''
+fingerprinter_cache: 'data/fingerprint_cache.db'
+weights_folder: 'train_folder/weights'
+eval_folder: 'train_folder/eval'
+log_folder: 'train_folder/logs'
 weights: model1582207334weights-improvement-11-0.0139.hdf5
 #weights: model1555016013weights-improvement-20-0.0111.hdf5
 #query_fp: 1_C20H19NO5_M+H+.fpt
 sirius_bin: /usr/local/bin/sirius
-training_set: train
-validation_set: validate
+training_set: /beegfs/vo87poq/msnovelist/target/sirius6-0502ca94-a242-4037-951c-db36a0876ea8.db
+validation_set: /beegfs/vo87poq/msnovelist/target/sirius6-b297c21c-cd1d-4d26-9c74-b62ed3399776.db
 pipeline_x: []
 pipeline_y: []
 pipeline_x_eval: []

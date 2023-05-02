@@ -62,6 +62,7 @@ if sc.config['training_id'] != '':
 sc.config.setdefault('cv_fold', 0)
 cv_fold = sc.config["cv_fold"]
 training_set = f"fold[^{cv_fold}]"
+print(training_set)
 validation_set = 'fold0'
 if cv_fold != 'X':
     validation_set = f"fold{cv_fold}"
@@ -103,8 +104,11 @@ fpr.Fingerprinter.init_instance(sc.config['fingerprinter_path'],
 
 logger.info(f"Datasets - loading database")
 fp_db  = db.FpDatabase.load_from_config(sc.config['db_path_train'])
+print("fp_db :" + fp_db)
 fp_train = fp_db.get_grp(training_set)
+print("fp_train :" + fp_train)
 fp_val = fp_db.get_grp(validation_set)
+print("fp_val :" + fp_val)
 logger.info(f"Datasets - loading evaluation")
 # File for CSI:FingerID validation data
 

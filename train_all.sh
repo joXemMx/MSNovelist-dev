@@ -1,1 +1,1 @@
-sbatch --array=0-9 run_singularity.sh
+sbatch --array=1 run_locally.sh
