@@ -1,6 +1,6 @@
 base_folder: /msnovelist/
 db_path: ''
-fp_map: '/target/csi_fingerid_mod.tsv'
+fp_map: '/target/data/fingerprint-map/csi_fingerid.csv'
 hdf5_lock: "FALSE"
 weights_folder: /target/data/weights/
 eval_folder: /target/data/results/
@@ -13,14 +13,14 @@ db_path_train:
     fingerprint_selected: fingerprint_sampled
   use_regex: true
 db_path_sample:
-  fp_map: '/target/csi_fingerid_mod.tsv'
+  fp_map: '/target/data/fingerprint-map/csi_fingerid.csv'
   path: /sirius6_db/sirius6-b297c21c-cd1d-4d26-9c74-b62ed3399776.db
   pipeline_options:
     embed_X: false
   reload_smiles_pubchem: false
   extract_sampler_data: true
 db_path_eval:
-  fp_map: '/target/csi_fingerid_mod.tsv'
+  fp_map: '/target/data/fingerprint-map/csi_fingerid.csv'
   path: /sirius6_db/sirius6-b297c21c-cd1d-4d26-9c74-b62ed3399776.db
   pipeline_options:
     embed_X: false
