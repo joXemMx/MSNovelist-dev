@@ -31,11 +31,11 @@ echo "FINISHED 09_randomize"
 bash backup.sh |& tee -a ~/MSNovelist-dev/preprocessing_sirius6/wallace_output.txt
 echo "FINISHED backup after 09_randomize"
 
-# ./10_subset_training.sh
-# echo "FINISHED 10_subset_training"
-# ./11_inchifolds_crossval.sh
-# echo "FINISHED 11_inchifolds_crossval"
-# ./12_subset_crossval.sh
-# echo "FINISHED 12_subset_crossval"
-# ./backup.sh
-# echo "FINISHED backup after shell scripts"
+bash 10_subset_training.sh |& tee -a ~/MSNovelist-dev/preprocessing_sirius6/wallace_output.txt
+echo "FINISHED 10_subset_training"
+bash 11_inchifolds_crossval.sh |& tee -a ~/MSNovelist-dev/preprocessing_sirius6/wallace_output.txt
+echo "FINISHED 11_inchifolds_crossval"
+bash 12_subset_crossval.sh |& tee -a ~/MSNovelist-dev/preprocessing_sirius6/wallace_output.txt
+echo "FINISHED 12_subset_crossval"
+bash backup.sh |& tee -a ~/MSNovelist-dev/preprocessing_sirius6/wallace_output.txt
+echo "FINISHED backup after shell scripts"
