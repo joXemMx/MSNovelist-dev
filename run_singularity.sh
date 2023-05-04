@@ -1,14 +1,10 @@
 #!/bin/bash
 
-#SBATCH --partition=gpu_p100,gpu_v100,gpu_a100
+#SBATCH --partition=s_standard
 #SBATCH --nodes=1
-#SBATCH --gres=gpu:1
-#SBATCH --mem-per-cpu=60000
 #SBATCH --nice
 
 source /home/vo87poq/MSNovelist-dev/singularity.env
-
-
 
 CMD=${1:-train}
 CMD_EXEC=""
@@ -34,12 +30,15 @@ fi
 
 echo "source _entrypoint.sh" >> $TMPDIR/.bashrc
 
-cp $DB_LOC/*.db $TMPDIR
+#cp $DB_LOC/*.db $TMPDIR
+
+module load tools/singularity/3.7.0
 
 singularity run \
 	$OPTS \
-	--bind $TMPDIR:/$HOME \
-	--bind $TMPDIR:/sirius6_db \
+	--bind $HOME_LOC:/$HOME \
+	--bind $TEMP_LOC:/tmp \
+	--bind $DB_LOC:/sirius6_db \
 	--bind $DATA_LOC:/target \
 	--bind $CODE_LOC:/msnovelist \
 	--bind $DATA_LOC:/data \

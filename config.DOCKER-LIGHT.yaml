@@ -1,6 +1,6 @@
 base_folder: /msnovelist/
 db_path: ''
-fp_map: '/msnovelist/data/fingerprint-map/csi_fingerid.csv'
+fp_map: '/target/csi_fingerid_mod.tsv'
 hdf5_lock: "FALSE"
 weights_folder: /msnovelist/data/weights/
 eval_folder: /msnovelist-data/results/
@@ -16,7 +16,7 @@ rerank_sirius_results_n: 64
 db_pubchem: /msnovelist/data/pubchem-dummy/pubchem_ref_dummy.db
 db_path_eval:
     path: /msnovelist/data/minimal-dataset/minimal_dataset.csv
-    fp_map: '/msnovelist/data/fingerprint-map/csi_fingerid.csv'
+    fp_map: '/target/csi_fingerid_mod.tsv'
     construct_from: 'smiles'
     reload_smiles_pubchem: True
     pipeline_options:
@@ -24,7 +24,7 @@ db_path_eval:
         embed_X: False
 db_path_sample:
     path: /msnovelist/data/minimal-dataset/minimal_dataset.csv
-    fp_map: '/msnovelist/data/fingerprint-map/csi_fingerid.csv'
+    fp_map: '/target/csi_fingerid_mod.tsv'
     construct_from: 'smiles'
     reload_smiles_pubchem: True
     pipeline_options:
