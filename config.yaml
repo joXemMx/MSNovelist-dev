@@ -1,80 +1,105 @@
-base_folder: ''
+base_folder: /home/vo87poq/MSNovelist-dev/
 db_path: ''
-fp_source: ''
-fp_map: ''
-epochs: 20
-# steps per epoch automatic: set to <0
-training_id: ''
-cv_fold: 0
-cv_folds: 0
-steps_per_epoch: -1
-steps_per_epoch_validation: -1
-batch_size: 32
+fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
 hdf5_lock: "FALSE"
-model_name: 'models.model_flex_20190401'
-sampler_name: ''
-fingerprinter_path: ''
-fingerprinter_threads: 2
-fingerprinter_cache: ''
-weights_folder: ''
-eval_folder: ''
-log_folder: ''
-weights: model1582207334weights-improvement-11-0.0139.hdf5
-#weights: model1555016013weights-improvement-20-0.0111.hdf5
-#query_fp: 1_C20H19NO5_M+H+.fpt
-sirius_bin: /usr/local/bin/sirius
-training_set: train
-validation_set: validate
-pipeline_x: []
-pipeline_y: []
+weights_folder: /home/vo87poq/MSNovelist-dev/data/weights/
+eval_folder: /home/vo87poq/MSNovelist-dev/data/results/
+log_folder: /home/vo87poq/MSNovelist-dev/data/tensorboard/
+batch_size: 256
+db_path_train:
+  path: /home/vo87poq/msnovelist/sirius6_db/sirius6-7fe9dc40-19d7-485e-9ddf-e8358a678629.db
+  pipeline_options:
+    embed_X: false
+    fingerprint_selected: fingerprint_sampled
+  use_regex: true
+db_path_sample:
+  fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+  path: /home/vo87poq/msnovelist/sirius6_db/sirius6-26ef2304-e996-4692-a33a-b349c161d966.db
+  pipeline_options:
+    embed_X: false
+  reload_smiles_pubchem: false
+  extract_sampler_data: true
+db_path_eval:
+  fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+  path: /home/vo87poq/msnovelist/sirius6_db/sirius6-26ef2304-e996-4692-a33a-b349c161d966.db
+  pipeline_options:
+    embed_X: false
+    fingerprint_selected: fingerprint_degraded
+all_evaluation_sets:
+- fold0-casmi
+- fold0-sirius
+- fold0-holdout
+- fold1-sirius
+- fold1-holdout
+- fold2-sirius
+- fold2-holdout
+- fold3-sirius
+- fold3-holdout
+- fold4-sirius
+- fold4-holdout
+- fold5-sirius
+- fold5-holdout
+- fold6-sirius
+- fold6-holdout
+- fold7-sirius
+- fold7-holdout
+- fold8-sirius
+- fold8-holdout
+- fold9-sirius
+- fold9-holdout
+cv_fold: 0
+cv_folds: 10
+decoder_config:
+  clip_invalid_counts: false
+  tokenization: tokens_process
+decoder_name: beam_search
+epochs: 25
+eval_detail: false
+eval_k: 128
+eval_kk: 128
+eval_n: 8
+eval_n_total: 126
+eval_steps: 128
+eval_temperature: 1.0
+eval_top_n: 1
+f1_cutoff: 0.5
+model_config:
+  loss_weights:
+    out_nhydrogen: 0.03
+    out_smiles: 1
+  use_auxiliary_counter: true
+  use_fingerprint: true
+  use_hydrogen_estimator: true
+  round_fingerprints: true
+model_name: models.model_flex_20190401
+model_tag: msnovelist-sirius6-weights
+pipeline_encoder:
+- fingerprint_selected
+- mol_form
+- n_hydrogen
+pipeline_reference:
+- smiles_canonical
+- fingerprint_degraded
+pipeline_x:
+- fingerprint_selected
+- mol_form
+- tokens_X
 pipeline_x_eval: []
+pipeline_y:
+- tokens_y
+- n_hydrogen
+preprocessing_preselect_limit: 1000000
 preprocessing_workers_preselect: 10
 preprocessing_workers_pubchem: 30
-preprocessing_preselect_limit: 1000000
-eval_n: 16
-eval_n_total: -1
-eval_k: 16
-eval_kk: 20
-eval_steps: 128
-eval_id: ''
-eval_counter: ''
-eval_detail: False
-model_tag: ''
-eval_top_n: 1
-java_memory: 2048
-fp_overlay_method: none
-tensorflow_trace: False
-training_verbose: 2
-reinforcement_config:
-    sigma: 50
-    iterations_per_step: 1
-    reinforcement_steps: 50
-    reinforcement_steps_store: [4, 9, 24, 49]
-    temperature: 2.
-reinforcement_eval_start: -1
-reinforcement_eval_count: -1
-eval_temperature: 1.0
-decoder_name: 'beam_search'
-random_seed_global: ''
-all_evaluation_sets:
-    - 'fold0-casmi'
-    - 'fold0-sirius'
-    - 'fold0-holdout'
-    - 'fold1-sirius'
-    - 'fold1-holdout'
-    - 'fold2-sirius'
-    - 'fold2-holdout'
-    - 'fold3-sirius'
-    - 'fold3-holdout'
-    - 'fold4-sirius'
-    - 'fold4-holdout'
-    - 'fold5-sirius'
-    - 'fold5-holdout'
-    - 'fold6-sirius'
-    - 'fold6-holdout'
-    - 'fold7-sirius'
-    - 'fold7-holdout'
-    - 'fold8-sirius'
-    - 'fold8-holdout'
-    - 'fold9-sirius'
-    - 'fold9-holdout'
+sampler_config:
+  final_round: true
+  max_loop: 10
+  replace_true: 0
+sampler_name: fp_sampling.cv_sampler_direct
+steps_per_epoch: -1
+steps_per_epoch_validation: -1
+tensorflow_trace: false
+training_set: train
+training_verbose: 1
+validation_set: validate
+weights: w-20-0.040-0.038.hdf5

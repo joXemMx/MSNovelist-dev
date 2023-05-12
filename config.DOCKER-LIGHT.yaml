@@ -5,8 +5,8 @@ hdf5_lock: "FALSE"
 weights_folder: /home/vo87poq/MSNovelist-dev/data/weights/
 eval_folder: /home/vo87poq/MSNovelist-dev/data/results/
 log_folder: /home/vo87poq/MSNovelist-dev/data/tensorboard/
-sirius_bin: /usr/local/bin/sirius/bin/sirius
-fingerprinter_path: /usr/local/bin/fingerprint-wrapper/fingerprint-wrapper-bin-0.5.2.jar
+sirius_bin: /home/vo87poq/MSNovelist-dev/sirius/bin/sirius
+fingerprinter_path: /home/vo87poq/MSNovelist-dev/fingerprint-wrapper/target/fingerprint-wrapper-bin-0.5.2.jar
 fingerprinter_threads: 10
 fingerprinter_cache: '/home/vo87poq/MSNovelist-dev/fingerprint_cache.db'
 training_verbose: 1
