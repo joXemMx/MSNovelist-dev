@@ -13,3 +13,4 @@ config/evaluation
 config/training
 config/trained 
 sirius/
+fingerprinter/
