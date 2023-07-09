@@ -1,0 +1,43 @@
+base_folder: /home/vo87poq/MSNovelist-dev/
+db_path: ''
+fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+hdf5_lock: "FALSE"
+weights_folder: /home/vo87poq/MSNovelist-dev/data/weights/
+log_folder: /home/vo87poq/MSNovelist-dev/data/tensorboard/
+sirius_bin: /home/vo87poq/MSNovelist-dev/sirius/bin/sirius
+fingerprinter_path: /home/vo87poq/MSNovelist-dev/fingerprint-wrapper/target/fingerprint-wrapper-bin-0.5.2.jar
+fingerprinter_threads: 10
+fingerprinter_cache: '/home/vo87poq/MSNovelist-dev/fingerprint_cache.db'
+training_verbose: 1
+coverage_baseline: ''
+batch_size: 256
+rerank_sirius_results_n: 64
+db_pubchem: /home/vo87poq/MSNovelist-dev/data/pubchem-dummy/pubchem_ref_dummy.db
+db_path_eval:
+    path: /home/vo87poq/MSNovelist-dev/data/minimal-dataset/minimal_dataset.csv
+    fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+    construct_from: 'smiles'
+    reload_smiles_pubchem: True
+    pipeline_options:
+        fingerprint_selected: fingerprint_degraded
+        embed_X: False
+db_path_sample:
+    path: /home/vo87poq/MSNovelist-dev/data/minimal-dataset/minimal_dataset.csv
+    fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+    construct_from: 'smiles'
+    reload_smiles_pubchem: True
+    pipeline_options:
+        fingerprint_selected: fingerprint_degraded
+        embed_X: False
+eval_k: 128
+eval_kk: 128
+eval_n: 8
+eval_steps: 128
+eval_temperature: 1.0
+random_seed_global: ''
+java_memory: 2048
+
+sirius_project_input: msnovelist-data/
+eval_id: '1683922791'
+eval_counter: '0'
+eval_folder: 'msnovelist-data/results-1683922791/'

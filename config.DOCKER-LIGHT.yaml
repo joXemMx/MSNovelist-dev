@@ -36,3 +36,6 @@ eval_kk: 128
 eval_n: 8
 eval_steps: 128
 eval_temperature: 1.0
+#random_seed_global: ''
+#java_memory: 2048
+
