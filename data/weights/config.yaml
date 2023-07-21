@@ -73,4 +73,5 @@ tensorflow_trace: false
 training_set: train
 training_verbose: 1
 validation_set: validate
-weights: w-20-0.040-0.038.hdf5
+weights: w-20-0.081-0.086.hdf5
+#weights_folder: /home/vo87poq/MSNovelist-dev/weights/

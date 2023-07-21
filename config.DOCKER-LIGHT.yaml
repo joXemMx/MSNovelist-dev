@@ -17,7 +17,7 @@ db_path_template:
   pipeline_options:
     embed_X: false
   reload_smiles_pubchem: false
-db_pubchem: home/vo87poq/MSNovelist-dev/data/pubchem-dummy/pubchem_ref_dummy.db
+db_pubchem: '/home/vo87poq/MSNovelist-dev/data/pubchem-dummy/pubchem_ref_dummy.db'
 decoder_config:
   clip_invalid_counts: false
   tokenization: tokens_process
@@ -25,7 +25,7 @@ decoder_name: beam_search
 epochs: 10
 eval_counter: ''
 eval_detail: false
-eval_folder: /home/vo87poq/MSNovelist-dev/data/results/
+eval_folder: /home/vo87poq/MSNovelist-dev/results/eval/
 eval_id: ''
 eval_k: 128
 eval_kk: 128
@@ -36,16 +36,16 @@ eval_temperature: 1.0
 eval_top_n: 1
 evaluation_set: dataset
 f1_cutoff: 0.5
-fingerprinter_cache: '/home/vo87poq/MSNovelist-dev/fingerprint_cache.db'
-fingerprinter_path: /home/vo87poq/MSNovelist-dev/fingerprinter/
+fingerprinter_cache: '/home/vo87poq/MSNovelist-dev/results/fingerprint_cache.db'
+fingerprinter_path: /home/vo87poq/MSNovelist-dev/fingerprinter_cli/bin/
 fingerprinter_threads: 10
-fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid.tsv'
-fp_map_evaluation: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+fp_map: '/home/vo87poq/MSNovelist-dev/fingerprinter_cli/csi_fingerid.tsv'
+fp_map_evaluation: '/home/vo87poq/MSNovelist-dev/fingerprinter_cli/csi_fingerid_mod.tsv'
 fp_overlay_method: none
 fp_source: ''
 hdf5_lock: 'FALSE'
 java_memory: 2048
-log_folder: /home/vo87poq/MSNovelist-dev/data/tensorboard/
+log_folder: /home/vo87poq/MSNovelist-dev/results/tensorboard/
 model_config:
   loss_weights:
     out_nhydrogen: 0.03

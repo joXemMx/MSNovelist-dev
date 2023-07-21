@@ -246,7 +246,7 @@ for i, query in enumerate(tqdm(queries)):
     smiles = decoder.sequence_ytoc(seq)
     
     results_df = decoder.format_results(smiles, score)
-    
+
     results_df = db.process_df(results_df, fingerprinter, construct_from = "smiles")
     
     results_mf_ref = pd.DataFrame({'n': range(n), 
@@ -274,6 +274,7 @@ for i, result in enumerate(tqdm(results)):
 logger.info(f"Processing {m} queries - merging")
 results_processed = pd.concat(results_processed_)
 #pickle.dump(results_processed, open(picklepath, "wb"))
+# results_processed.to_csv(csv_path, index=False)
 
 
 #results_complete = pd.concat(results_processed)

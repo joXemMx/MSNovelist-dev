@@ -3,7 +3,9 @@
 export COMPUTERNAME=DOCKER-LIGHT
 export MSNOVELIST_BASE=/home/vo87poq/MSNovelist-dev
 export TF_CPP_MIN_LOG_LEVEL=3
-export JAVA_HOME=/usr
+export JAVA_HOME=/usr/lib/jvm/zulu17
+export PATH="$JAVA_HOME/bin:$PATH"
+
 
 cd $MSNOVELIST_BASE
 
@@ -36,12 +38,12 @@ cp config.DOCKER-LIGHT.yaml msnovelist-data/msnovelist-config-$RUNID.yaml
 # If this is a file with spectra: process with SIRIUS and use resulting path as input path for MSNovelist
 if [[ ! -d "msnovelist-data/$1" ]]
 then
-	sirius.sh --log=WARNING -i "msnovelist-data/$1" -o "msnovelist-data/sirius-$RUNID" $SIRIUS_SETTINGS
+	bash sirius.sh --log=WARNING --cores=10 -i "$1" -o "msnovelist-data/sirius-$RUNID" $SIRIUS_SETTINGS
 	#chown -R $USER /msnovelist-data/sirius-$RUNID
-	echo "sirius_project_input: /snovelist-data/sirius-$RUNID" >> msnovelist-data/msnovelist-config-$RUNID.yaml
+	echo -e "\nsirius_project_input: 'msnovelist-data/sirius-$RUNID'" >> msnovelist-data/msnovelist-config-$RUNID.yaml
 # Otherwise use input directory as input path for MSNovelist
 else
-	echo "sirius_project_input: msnovelist-data/$1" >> msnovelist-data/msnovelist-config-$RUNID.yaml
+	echo "sirius_project_input: '$1'" >> msnovelist-data/msnovelist-config-$RUNID.yaml
 	#chown -R $USER /msnovelist-data/$1
 fi
 
