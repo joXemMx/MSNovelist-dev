@@ -3,6 +3,7 @@ from rdkit import Chem
 
 
 def normalize_smiles(smiles):
+    smiles = smiles.replace('?', '')
     mol = Chem.MolFromSmiles(smiles)
     if mol is not None:
         return Chem.MolToSmiles(mol), mol
