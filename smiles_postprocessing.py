@@ -24,12 +24,13 @@ def check_atom_count(smiles, mol, rnn_score, allowed_element_count, elements, va
             if symbol not in elements:
                 return
             index = elements.index(symbol)
+            # Can not use more elements than allowed by molecular formula
             if element_counter[index] == 0:
                 return 
             element_counter[index] -= 1
 
+    # Check if all elements have been used
     if all(count == 0 for count in element_counter):
-        print(element_counter)
         valid_unique_smiles[smiles] = rnn_score
     
 
