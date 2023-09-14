@@ -266,7 +266,7 @@ class Fingerprinter:
                 fp_bits = line.strip('\n').split('\t')
                 fp_bits_num_ = [int(x) for x in fp_bits]
                 fp_bits_num = [x for x in fp_bits_num_ if x <  self.fp_len]
-                fp = np.zeros((1, self.fp_len), dtype=np.uint8)
+                fp = np.zeros((1, self.fp_len), dtype=np.float32)
                 fp[0,fp_bits_num] = 1
                 if return_numpy:
                     return fp
@@ -299,7 +299,7 @@ def get_fp(fp, length = None, b64decode = True):
         fp_bytes = base64.b64decode(fp)
     else:
         fp_bytes = fp
-    fp_bytes = np.frombuffer(fp_bytes, dtype=np.uint8).reshape(1, -1)
+    fp_bytes = np.frombuffer(fp_bytes, dtype=np.float32).reshape(1, -1)
     fp_bits = process_fp_numpy_block(fp_bytes)
     # potentially work around alignment issues on the last bits
     fp_bits = fp_bits[:,:length]
@@ -319,4 +319,3 @@ def repack_fp_numpy(X_fp):
 
 # Functionality to test FP processing: alignment etc
 # Todo: Make real unit tests
-        
