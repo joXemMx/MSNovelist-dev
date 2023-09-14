@@ -10,7 +10,8 @@ sys.path.append(os.path.expanduser('~/MSNovelist-dev'))
 import fp_management.database as db
 import itertools
 import uuid
-import fp_management.fingerprinting as fp
+import fp_management.fingerprinting as fpr
+from fp_management import fingerprint_map as fpm
 import smiles_config as sc
 
 os.chdir(os.path.expanduser('~/msnovelist'))
@@ -25,7 +26,13 @@ h5_crossval = h5py.File(db_crossval, mode='r')
 
 PROCESSING_BLOCK_SIZE=40000
 
-fingerprinter = fp.Fingerprinter(sc.config['fingerprinter_path'])
+fp_map = fpm.FingerprintMap(sc.config["fp_map"])
+fpr.Fingerprinter.init_instance(sc.config['fingerprinter_path'],
+                                fp_map,
+                                sc.config['fingerprinter_threads'],
+                                capture = False,
+                                cache = sc.config['fingerprinter_cache'])
+fingerprinter = fpr.Fingerprinter.get_instance()
 
 def try_fp_item(smiles_generic, smiles_canonical, fp_true, fp_predicted):
     try:
