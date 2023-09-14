@@ -24,5 +24,5 @@ for i in "${folds[@]}"
 do
     echo "training_id: '${now}_${i}'" > trainings/${now}/job_${i}.yaml
 	echo "cv_fold: $i" >> trainings/${now}/job_${i}.yaml
-    python training_subclass.py -c config.yaml trainings/${now}/job_${i}.yaml |& tee trainings/${now}/job_${i}_output.txt &
+    python train.py -c config.yaml trainings/${now}/job_${i}.yaml |& tee trainings/${now}/job_${i}_output.txt &
 done
