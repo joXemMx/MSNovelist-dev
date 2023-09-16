@@ -47,7 +47,7 @@ class FpDatabaseSqlite(FpDatabase):
             self.random_seed = random_seed
 
 
-            data_fp_true = np.stack([np.frombuffer(x, dtype=np.uint8) for x in df.fingerprint])
+            data_fp_true = np.stack([np.frombuffer(x, dtype=np.float32) for x in df.fingerprint])
             data_fp_predicted = np.stack([np.frombuffer(x, dtype=np.float32) for x in df.fingerprint_degraded])
 
             self.fp_len = data_fp_true.shape[1]
