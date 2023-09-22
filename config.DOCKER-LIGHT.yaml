@@ -5,18 +5,18 @@ cv_folds: 10
 db_path_eval:
   construct_from: smiles
   fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
-  path: /home/vo87poq/msnovelist/target/sirius6-26ef2304-e996-4692-a33a-b349c161d966.db
+  path: /home/vo87poq/msnovelist/target/sirius6-2ec0d5a2-4d84-47d9-ac54-22ae2961d139.db
   pipeline_options:
     embed_X: false
     fingerprint_selected: fingerprint_degraded
   reload_smiles_pubchem: false
-db_path_template:
-  construct_from: smiles
-  fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
-  path: /home/vo87poq/MSNovelist-dev/data/minimal-dataset/sirius6-minimal.db
-  pipeline_options:
-    embed_X: false
-  reload_smiles_pubchem: false
+# db_path_template:
+#   construct_from: smiles
+#   fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+#   path: /home/vo87poq/MSNovelist-dev/data/minimal-dataset/sirius6-minimal.db
+#   pipeline_options:
+#     embed_X: false
+#   reload_smiles_pubchem: false
 db_pubchem: '/home/vo87poq/MSNovelist-dev/data/pubchem-dummy/pubchem_ref_dummy.db'
 decoder_config:
   clip_invalid_counts: false
@@ -30,7 +30,7 @@ eval_id: ''
 eval_k: 128
 eval_kk: 128
 eval_n: 8
-eval_n_total: 10
+eval_n_total: 126
 eval_steps: 128
 eval_temperature: 1.0
 eval_top_n: 1
@@ -39,8 +39,8 @@ f1_cutoff: 0.5
 fingerprinter_cache: '/home/vo87poq/MSNovelist-dev/results/fingerprint_cache.db'
 fingerprinter_path: /home/vo87poq/MSNovelist-dev/fingerprinter_cli/bin/
 fingerprinter_threads: 10
-fp_map: '/home/vo87poq/MSNovelist-dev/fingerprinter_cli/csi_fingerid.tsv'
-fp_map_evaluation: '/home/vo87poq/MSNovelist-dev/fingerprinter_cli/csi_fingerid_mod.tsv'
+fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+#fp_map_evaluation: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
 fp_overlay_method: none
 fp_source: ''
 hdf5_lock: 'FALSE'
@@ -91,8 +91,8 @@ sampler_config:
   final_round: true
   max_loop: 10
   replace_true: 0
-#sampler_name: fp_sampling.cv_sampler_direct
-sampler_name: ""
+sampler_name: fp_sampling.cv_sampler_direct
+#sampler_name: ''
 sirius_bin: /home/vo87poq/MSNovelist-dev/sirius/bin/sirius
 steps_per_epoch: -1
 steps_per_epoch_validation: -1
