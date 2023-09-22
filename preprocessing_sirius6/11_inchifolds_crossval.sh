@@ -2,8 +2,6 @@
 #!/bin/bash
 
 DB_STEP2=$(sed -n 's/^ *db_step2: *//p' ~/msnovelist/target/log.yaml)
-COMPOUNDS_LIMIT=100000
-
 
 sqlite3 ~/msnovelist/$DB_STEP2 << EOF
     ATTACH DATABASE '/home/vo87poq/msnovelist/target/sirius6-crossval-folds.db' AS target;
