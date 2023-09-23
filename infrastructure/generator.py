@@ -124,7 +124,7 @@ def smiles_pipeline(dataset,
     # Fingerprint: extract and map
     # Unpack byte array (stored in database blob) to matrix
     if unpack:
-        dataset_batch_fpr = dataset_batch_fpr.map(lambda x: tf.io.decode_raw(x, 'uint8'))
+        dataset_batch_fpr = dataset_batch_fpr.map(lambda x: tf.io.decode_raw(x, 'float32'))
         dataset_batch_fprd = dataset_batch_fprd.map(lambda x: tf.io.decode_raw(x, 'float32'))
     # If required, map the full fingerprint to the CSI:FingerID-predicted subfingerprint. 
     # TODO: make sure we don't need this anymore and remove.
