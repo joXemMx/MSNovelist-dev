@@ -72,5 +72,8 @@ utility.plot_recovery_curve(found_matches_position, len(formulas)-3, split, epoc
 # print(f'Recovery: {(len(found_matches_position)/(len(formulas)-3))*100}%')
 predictions.to_csv(f'{directory}/evaluation_table_s{split}_e{epoch}.tsv', sep='\t')
 
+with open('eval_summary.txt', 'a') as summary_file:
+    summary_file.write(f'Recovery percentage on split {split}, epoch {epoch}: {(len(found_matches_position)/(len(formulas)-3))*100}\n')
+    
 # with open("failed_predictions.txt", "w") as output:
 #     output.write(str(failed_predictions))
