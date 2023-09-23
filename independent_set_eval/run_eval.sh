@@ -1,5 +1,8 @@
 #!/bin/bash
 
+source /vol/software/anaconda3/etc/profile.d/conda.sh
+conda activate msnovelist-env
+
 ## Run evaluation for each splits weights of epoch 20+ (if existing)
 
 # Directory where weights and config file are located
@@ -19,6 +22,9 @@ for subfolder in "$weights_dir"/split_*; do
 
         # Update the "weights" value in the YAML file
         sed -i "s/weights: .*/weights: $filename/" "$config_file"
+
+        # Update the "weights_folder" value in the YAML file
+        sed -i "s|weights_folder: .*|weights_folder: $weights_dir\/split_$split_number\/|" "$config_file"
 
         # Run Python script with the updated configuration
         SPLIT="$split_number" python "$python_script"
