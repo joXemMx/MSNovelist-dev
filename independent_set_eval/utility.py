@@ -58,9 +58,8 @@ def matching_atom_count(smiles, formula):
 
 def match_smiles(true_smiles, predictions):
     matches = []
-    smiles_real_normalized = normalize_smiles(true_smiles)
     for pred in predictions:
-        if smiles_real_normalized == pred:
+        if true_smiles == pred:
             matches.append(1)
             # if hit is found, set rest to 0
             matches += [0] * (128 - len(matches))
@@ -73,22 +72,22 @@ def plot_recovery_curve(hit_positions, total_size, split, epoch, directory):
     recovery_percentages = []
     current_recovery = 0
 
-    for i in range(1, 11):  # Calculate up to position 10
+    for i in range(1, 12):  # Calculate up to position 11
         hits_at_position = hit_positions.count(i)
         current_recovery += (hits_at_position / total_size) * 100
         recovery_percentages.append(current_recovery)
 
     # Plot the recovery curve
-    positions = list(range(1, 11))
+    positions = list(range(1, 12))
     plt.step(positions, recovery_percentages, where='post', color='b')
     plt.xlabel('Rank of predicted structure by RNN score')
     plt.ylabel('Percentage of correctly recovered structures')
-    plt.title(f'Recovery curve for weights of split {split}, epoch {epoch}')
-    plt.grid(True)
-    plt.xlim(1,10)
+    plt.title(f'Rank of correct structure in results (weights of split {split}, epoch {epoch})')
+    plt.xlim(1,10.95)
+    plt.xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     plt.ylim(0, max(recovery_percentages) + 5)
     overall_recovery = (len(hit_positions) / total_size) * 100
-    plt.text(6.4, 0.4, f'Overall recovery: {overall_recovery:.2f}%', bbox=dict(facecolor='white', alpha=1))
+    plt.text(1.5, max(recovery_percentages) + 2.5, f'Total recovery: {overall_recovery:.2f}%', bbox=dict(facecolor='white', alpha=1))
 
     plt.savefig(f'{directory}/recovery_plot_s{split}_e{epoch}.png', dpi=300)
 
@@ -102,6 +101,5 @@ def get_formulas_from_smiles(smiles):
             mf = mf.replace('+', '').replace('-', '')
             formulas.append(mf)
         except:
-            print("Exception found!")
             formulas.append('invalid')
     return formulas
