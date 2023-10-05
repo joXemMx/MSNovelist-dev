@@ -17,7 +17,7 @@ split = os.environ.get('SPLIT')
 epoch = sc.config['weights'].split('-')[1]
 
 path = os.path.expanduser('~/MSNovelist-dev')
-eval_dir = f'{path}/evaluation_results'
+eval_dir = f'{path}/independent_set_eval/evaluation_results'
 parent_dir = f'{eval_dir}/split_{split}_evaluation_results'
 directory = f'{parent_dir}/split_{split}_epoch_{epoch}_eval'
 if not os.path.exists(directory):
