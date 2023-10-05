@@ -1,1 +1,6 @@
-['C[As](=O)(C)O', 'C[As](=O)(C)O', 'B(C1=CC=CC=C1)(C2=CC=CC=C2)OCCN']
+# not kept in validation
+invalid molecular formulas: ['C[As](=O)(C)O', 'C[As](=O)(C)O', 'B(C1=CC=CC=C1)(C2=CC=CC=C2)OCCN']
+
+# kept in validation but may be impossible to get correct
+SMILES too long: 58
+RDKit normalized SMILES too long: 43
