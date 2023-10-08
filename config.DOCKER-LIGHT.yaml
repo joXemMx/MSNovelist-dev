@@ -4,20 +4,20 @@ cv_fold: 0
 cv_folds: 10
 db_path_eval:
   construct_from: smiles
-  fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+  fp_map: './csi_fingerid_mod.tsv'
   path: /home/vo87poq/msnovelist/target/sirius6-2ec0d5a2-4d84-47d9-ac54-22ae2961d139.db
   pipeline_options:
     embed_X: false
     fingerprint_selected: fingerprint_degraded
   reload_smiles_pubchem: false
-# db_path_template:
-#   construct_from: smiles
-#   fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
-#   path: /home/vo87poq/MSNovelist-dev/data/minimal-dataset/sirius6-minimal.db
-#   pipeline_options:
-#     embed_X: false
-#   reload_smiles_pubchem: false
-db_pubchem: '/home/vo87poq/MSNovelist-dev/data/pubchem-dummy/pubchem_ref_dummy.db'
+db_path_template:
+  construct_from: smiles
+  fp_map: './csi_fingerid_mod.tsv'
+  path: './data/minimal-dataset/sirius6-minimal.db'
+  pipeline_options:
+    embed_X: false
+  reload_smiles_pubchem: false
+db_pubchem: './data/pubchem-dummy/pubchem_ref_dummy.db'
 decoder_config:
   clip_invalid_counts: false
   tokenization: tokens_process
@@ -25,27 +25,27 @@ decoder_name: beam_search
 epochs: 10
 eval_counter: ''
 eval_detail: false
-eval_folder: /home/vo87poq/MSNovelist-dev/results/eval/
+eval_folder: './results/eval/'
 eval_id: ''
 eval_k: 128
 eval_kk: 128
 eval_n: 8
-eval_n_total: 126
+eval_n_total: 10
 eval_steps: 128
 eval_temperature: 1.0
 eval_top_n: 1
 evaluation_set: dataset
 f1_cutoff: 0.5
-fingerprinter_cache: '/home/vo87poq/MSNovelist-dev/results/fingerprint_cache.db'
-fingerprinter_path: /home/vo87poq/MSNovelist-dev/fingerprinter_cli/bin/
+fingerprinter_cache: './results/fingerprint_cache.db'
+fingerprinter_path: './fingerprinter_cli/bin/'
 fingerprinter_threads: 10
-fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
-#fp_map_evaluation: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+fp_map: './csi_fingerid.tsv'
+fp_map_evaluation: './csi_fingerid_mod.tsv'
 fp_overlay_method: none
 fp_source: ''
 hdf5_lock: 'FALSE'
 java_memory: 2048
-log_folder: /home/vo87poq/MSNovelist-dev/results/tensorboard/
+log_folder: './results/tensorboard/'
 model_config:
   loss_weights:
     out_nhydrogen: 0.03
@@ -91,9 +91,9 @@ sampler_config:
   final_round: true
   max_loop: 10
   replace_true: 0
-sampler_name: fp_sampling.cv_sampler_direct
-#sampler_name: ''
-sirius_bin: /home/vo87poq/MSNovelist-dev/sirius/bin/sirius
+#sampler_name: fp_sampling.cv_sampler_direct
+sampler_name: ""
+sirius_bin: './sirius/bin/sirius'
 steps_per_epoch: -1
 steps_per_epoch_validation: -1
 tensorflow_trace: false
@@ -101,5 +101,5 @@ training_id: ''
 training_set: train
 training_verbose: 1
 validation_set: validate
-weights: w-20-0.081-0.086.hdf5
-weights_folder: /home/vo87poq/MSNovelist-dev/data/weights/
+weights: w-15-0.062-0.064.hdf5
+weights_folder: './data/weights/split_0_bs_512/'

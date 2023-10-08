@@ -1,26 +1,26 @@
 base_folder: /home/vo87poq/MSNovelist-dev/
 db_path: ''
-fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+fp_map: './csi_fingerid_mod.tsv'
 hdf5_lock: "FALSE"
-weights_folder: /home/vo87poq/MSNovelist-dev/data/weights/
-eval_folder: /home/vo87poq/MSNovelist-dev/data/results/
-log_folder: /home/vo87poq/MSNovelist-dev/data/tensorboard/
+weights_folder: './data/weights/'
+eval_folder: './data/results/'
+log_folder: './data/tensorboard/'
 batch_size: 256
 db_path_train:
-  path: /home/vo87poq/msnovelist/target/sirius6-f7b01257-359b-4f66-bd54-af583d536c60.db
+  path: /home/vo87poq/msnovelist/target/sirius6-3bae2b70-1282-4f39-8d06-dc3da10b14a3.db
   pipeline_options:
     embed_X: false
     fingerprint_selected: fingerprint_sampled
   use_regex: true
 db_path_sample:
-  fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+  fp_map: './csi_fingerid_mod.tsv'
   path: /home/vo87poq/msnovelist/target/sirius6-2ec0d5a2-4d84-47d9-ac54-22ae2961d139.db
   pipeline_options:
     embed_X: false
   reload_smiles_pubchem: false
   extract_sampler_data: true
 db_path_eval:
-  fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+  fp_map: './csi_fingerid_mod.tsv'
   path: /home/vo87poq/msnovelist/target/sirius6-2ec0d5a2-4d84-47d9-ac54-22ae2961d139.db
   pipeline_options:
     embed_X: false
