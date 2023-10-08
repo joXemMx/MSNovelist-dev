@@ -58,7 +58,7 @@ def config_reload(config_file = config_file, extra_config = False):
             config.update(config_)
     for k, v in config.items():
         if(type(v) == str):
-            config[k] = v.replace('.\\', config['base_folder'])
+            config[k] = v.replace('./', config['base_folder'])
     if "extra_config" in config and not extra_config:
         config_reload(config['extra_config'], extra_config = True)
         
