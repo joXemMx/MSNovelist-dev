@@ -1,0 +1,3 @@
+split	epoch	found_matches	recovery_percentage	invalid_predictions	invalid_predictions_percentage	matching_formulas	matching_formulas_percentage	matches_pos_1	matches_pos_2	matches_pos_3	matches_pos_4	matches_pos_5	matches_pos_6	matches_pos_7	matches_pos_8	matches_pos_9	matches_pos_10
+0_scrambled	5	0	0.0	198250	96.74	0	0.0	0	0	0	0	0	0	0	0	0	0
+0_valid	05	421	26.3	35474	17.31	118206	69.76	119	41	17	16	15	18	7	10	10	14
