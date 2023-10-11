@@ -12,8 +12,8 @@ db_path_eval:
   reload_smiles_pubchem: false
 db_path_template:
   construct_from: smiles
-  fp_map: './csi_fingerid_mod.tsv'
-  path: './data/minimal-dataset/sirius6-minimal.db'
+  fp_map: '/home/vo87poq/MSNovelist-dev/csi_fingerid_mod.tsv'
+  path: '/home/vo87poq/MSNovelist-dev/data/minimal-dataset/sirius6-minimal.db'
   pipeline_options:
     embed_X: false
   reload_smiles_pubchem: false
