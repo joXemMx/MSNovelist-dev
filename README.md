@@ -1,4 +1,8 @@
-## Mirror of the original README. For the original repository please go to https://github.com/meowcat/MSNovelist
+# Repository for the master's thesis of Jonas Emmert
+
+Training is run using `run_locally.sh`, for the evaluation code see `independent_set_eval` and `gnps_set_eval`. Run independent set evaluation using `run_eval.sh`. Peripheral data not included in this repository is needed for both to work.
+
+### Below is a mirror of the original README. For the original repository please go to https://github.com/meowcat/MSNovelist
 
 # MSNovelist: De novo structure generation from mass spectra
 Michael A. Stravs (1), Kai Dührkop (2), Sebastian Böcker (2), Nicola Zamboni (1)
