@@ -1,3 +1,5 @@
+## Mirror of the original README. For the original repository please go to https://github.com/meowcat/MSNovelist
+
 # MSNovelist: De novo structure generation from mass spectra
 Michael A. Stravs (1), Kai Dührkop (2), Sebastian Böcker (2), Nicola Zamboni (1)
 
